@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>notes (1-3) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="这里开始才是你的正文… 最优控制笔记第一讲以单摆为后续仿真例子：  $$ % 单摆动力学方程  ml^2 \ddot{\theta} + mgl \sin(\theta) &#x3D; \tau\ % 变量定义（广义坐标、速度、控制输入） q &#x3D; \theta, \quad v &#x3D; \dot{\theta}, \quad u &#x3D; \tau\ % 状态向量与状态导数（蓝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="notes (1-3)">
+<meta property="og:url" content="http://example.com/2026/02/02/notes(1-3)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这里开始才是你的正文… 最优控制笔记第一讲以单摆为后续仿真例子：  $$ % 单摆动力学方程  ml^2 \ddot{\theta} + mgl \sin(\theta) &#x3D; \tau\ % 变量定义（广义坐标、速度、控制输入） q &#x3D; \theta, \quad v &#x3D; \dot{\theta}, \quad u &#x3D; \tau\ % 状态向量与状态导数（蓝">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251010234425796.png">
+<meta property="og:image" content="c:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251011004518934.png">
+<meta property="og:image" content="c:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251015181344461.png">
+<meta property="og:image" content="c:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251015180538430.png">
+<meta property="og:image" content="c:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251015181622092.png">
+<meta property="og:image" content="c:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251016000434154.png">
+<meta property="og:image" content="c:\Users\CYH\AppData\Roaming\Typora\typora-user-images\%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE 2026-01-22 223944.png">
+<meta property="og:image" content="c:\Users\CYH\AppData\Roaming\Typora\typora-user-images\%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE 2026-01-23 165223.png">
+<meta property="article:published_time" content="2026-02-02T05:05:00.000Z">
+<meta property="article:modified_time" content="2026-02-02T05:04:48.220Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="最优控制">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251010234425796.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-notes(1-3)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/02/notes(1-3)/" class="article-date">
+  <time class="dt-published" datetime="2026-02-02T05:05:00.000Z" itemprop="datePublished">2026-02-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      notes (1-3)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>这里开始才是你的正文…</p>
+<h1 id="最优控制笔记"><a href="#最优控制笔记" class="headerlink" title="最优控制笔记"></a>最优控制笔记</h1><h2 id="第一讲"><a href="#第一讲" class="headerlink" title="第一讲"></a>第一讲</h2><p>以单摆为后续仿真例子：</p>
+<img src="C:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251010234425796.png" alt="image-20251010234425796" style="zoom:67%;" />
+$$
+% 单摆动力学方程
+
+<p>ml^2 \ddot{\theta} + mgl \sin(\theta) &#x3D; \tau<br>\</p>
+<p>% 变量定义（广义坐标、速度、控制输入）</p>
+<p>q &#x3D; \theta, \quad v &#x3D; \dot{\theta}, \quad u &#x3D; \tau<br>\</p>
+<p>% 状态向量与状态导数（蓝色部分标记为 f(x, u)）</p>
+<p>\mathbf{x} &#x3D; \begin{bmatrix} \theta \ \dot{\theta} \end{bmatrix}<br>\implies<br>\dot{\mathbf{x}} &#x3D; \underbrace{<br>\begin{bmatrix}<br>\dot{\theta} \<br>-\frac{g}{l} \sin(\theta) + \frac{1}{ml^2} u<br>\end{bmatrix}<br>}_{f(\mathbf{x}, u)}<br>\</p>
+<p>q \in S^1 \ (\text{Circle}), \quad \mathbf{x} \in S^1 \times \mathbb{R} \ (\text{Cylinder})</p>
+<p>\small（流形说明，非核心）<br>$$<br>在控制中：<br>$$<br>% 控制仿射系统的一般形式</p>
+<p>\dot{\mathbf{x}} &#x3D; \underbrace{f_0(\mathbf{x})}<em>{\text{“drift”（漂移项）}} + \underbrace{B(\mathbf{x})}</em>{\text{“input Jacobian”（输入雅可比项）}} , u</p>
+<p>\</p>
+<p>% 单摆系统的状态定义</p>
+<p>\mathbf{x} &#x3D; \begin{bmatrix} \theta \ \dot{\theta} \end{bmatrix} \quad<br>\text{（其中：}\theta\text{为摆角，}\dot{\theta}\text{为角速度）}</p>
+<p>\<br>% 单摆的漂移项</p>
+<p>f_0(\mathbf{x}) &#x3D; \begin{bmatrix} \dot{\theta} \ \frac{g}{l} \sin(\theta) \end{bmatrix}<br>\</p>
+<p>% 单摆的输入矩阵</p>
+<p>B(\mathbf{x}) &#x3D; \begin{bmatrix} 0 \ \frac{1}{ml^2} \end{bmatrix}<br>\</p>
+<p>% 参数说明（非重点，以小字号标注）<br>\small<br>其中：g为重力加速度，l为摆长，m为摆锤质量，u为控制力矩（即\tau）<br>$$</p>
+<p>这一系统可以用如下函数描述：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> pendulum_dynamics(x)</span><br><span class="line">    l = <span class="number">1.0</span></span><br><span class="line">    g = <span class="number">9.81</span></span><br><span class="line">    </span><br><span class="line">    θ = x[<span class="number">1</span>]</span><br><span class="line">    θ̇ = x[<span class="number">2</span>]</span><br><span class="line">    </span><br><span class="line">    θ̈ = -(g/l)*sin(θ)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> [θ̇ ; θ̈ ]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第二讲"><a href="#第二讲" class="headerlink" title="第二讲"></a>第二讲</h2><h3 id="（连续系统）稳定性（简易）判断："><a href="#（连续系统）稳定性（简易）判断：" class="headerlink" title="（连续系统）稳定性（简易）判断："></a>（连续系统）稳定性（简易）判断：</h3><p>$$<br>\frac{\partial f}{\partial x} is\space a\space Jacobian\space matrix\</p>
+<p>\text{Re}\left[\text{eigvals}\left(\frac{\partial f}{\partial x}\right)\right] &lt; 0 \implies \text{stable}<br>\space\space\space\space\space</p>
+<p>Otherwise \implies unstable<br>$$</p>
+<p>以单摆为例：<br>$$<br>f(x) &#x3D; \begin{bmatrix} \dot{\theta} \ -\frac{g}{\ell} \sin\theta \end{bmatrix} \implies \frac{\partial f}{\partial x} &#x3D; \begin{bmatrix} 0 &amp; 1 \ \frac{g}{\ell} \cos\theta &amp; 0 \end{bmatrix}<br>\<br>$$<br>①<em>对于倒立时刻：</em></p>
+<p>$$<br>\left. \frac{\partial f}{\partial x} \right|<em>{\theta &#x3D; \pi} &#x3D; \begin{bmatrix} 0 &amp; 1 \ \frac{g}{\ell} &amp; 0 \end{bmatrix} \implies \text{eigvals}\left( \frac{\partial f}{\partial x} \right) &#x3D; \pm \sqrt{\frac{g}{\ell}} \implies \text{unstable}<br>\<br>$$<br>②<em>对于正立时刻：</em><br>$$<br>\left. \frac{\partial f}{\partial x} \right|</em>{\theta &#x3D; 0} &#x3D; \begin{bmatrix} 0 &amp; 1 \ -\frac{g}{\ell} &amp; 0 \end{bmatrix} \implies \text{eigvals}\left( \frac{\partial f}{\partial x} \right) &#x3D; \pm i \sqrt{\frac{g}{\ell}} \implies \text{undamped oscillation}<br>\<br>$$</p>
+<h3 id="（离散系统）稳定性（简易）判断："><a href="#（离散系统）稳定性（简易）判断：" class="headerlink" title="（离散系统）稳定性（简易）判断："></a>（离散系统）稳定性（简易）判断：</h3><p>离散系统状态更新方程：<br>$$<br>x_{n+1} &#x3D; f_d(x_n, u_n)<br>$$<br>定义离散系统的雅可比矩阵 ：<br>$$<br>A_d &#x3D; \frac{\partial f_d}{\partial x}<br>$$<br>若不考虑输入u，离散系统（线性化后）的稳定性条件为：<br>$$<br>\left| \text{eigvals}\left( A_d \right) \right| &lt; 1（所有特征值的模小于1，即位于复平面单位圆内）<br>$$</p>
+<h3 id="如何进行系统数值仿真？"><a href="#如何进行系统数值仿真？" class="headerlink" title="如何进行系统数值仿真？"></a>如何进行系统数值仿真？</h3><h4 id="1-向后欧拉"><a href="#1-向后欧拉" class="headerlink" title="1.向后欧拉"></a>1.向后欧拉</h4><p>对于：<br>$$<br>x_{n+1} &#x3D; f_d(x_n, u_n)<br>$$<br>我们可以写出一个显式步进方程：<br>$$<br>x_{n+1} &#x3D; x_n + h , f(x_n, u_n)\<br>$$<br>由此我们可以编写向后欧拉：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> pendulum_forward_euler(fun, x0, Tf, h)    </span><br><span class="line">    t = <span class="built_in">Array</span>(range(<span class="number">0</span>,Tf,step=h))</span><br><span class="line">    </span><br><span class="line">    x_hist = zeros(length(x0),length(t))</span><br><span class="line">    x_hist[:,<span class="number">1</span>] .= x0</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>:(length(t)-<span class="number">1</span>)</span><br><span class="line">        x_hist[:,k+<span class="number">1</span>] .= x_hist[:,k] + h*fun(x_hist[:,k])</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> x_hist, t</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>随后可以尝试运行：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x0 = [<span class="number">.1</span>; <span class="number">0</span>]</span><br><span class="line">x_hist1, t_hist1 = pendulum_forward_euler(pendulum_dynamics, x0, <span class="number">50</span>, <span class="number">.01</span>)</span><br><span class="line">plot(t_hist1, x_hist1[<span class="number">1</span>,:])</span><br></pre></td></tr></table></figure>
+
+<p>得到结果：</p>
+<img src="C:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251011004518934.png" alt="image-20251011004518934" style="zoom:67%;" />
+
+<p>我们可以观察他的$x_{k+1}&#x3D;f_d(x_k)$中的雅可比矩阵$\frac{\partial f}{\partial x}$的特征值是否在单位圆内分析原因：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> pendulum_euler_Ad(x0, h)</span><br><span class="line">    g = <span class="number">9.81</span></span><br><span class="line">    Ad = [<span class="number">1</span> h; -g*h*cos(x0[<span class="number">1</span>]) <span class="number">1</span>]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">eigvals(pendulum_euler_Ad(<span class="number">0</span>, <span class="number">0.001</span>))</span><br></pre></td></tr></table></figure>
+
+<p>得到：</p>
+<p>2-element Vector{ComplexF64}:<br> 1.0 - 0.0031320919526731652im<br> 1.0 + 0.0031320919526731652im</p>
+<p>可见在单位圆外。</p>
+<p>实际上，我们可以绘制这一问题的向后欧拉在不同时间步长下的最大特征值情况：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">eignorm = zeros(<span class="number">100</span>)</span><br><span class="line">h = <span class="built_in">LinRange</span>(<span class="number">0</span>,<span class="number">0.1</span>,<span class="number">100</span>)</span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:length(eignorm)</span><br><span class="line">    eignorm[k] = max(norm.(eigvals(pendulum_euler_Ad([<span class="number">0</span>;<span class="number">0</span>], h[k])))...)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">plot(h,eignorm)</span><br></pre></td></tr></table></figure>
+
+<p>可得：</p>
+<img src="C:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251015181344461.png" alt="image-20251015181344461" style="zoom:67%;" />
+
+<blockquote>
+<p>[!IMPORTANT]</p>
+<p>结论：向后欧拉常常使得仿真系统稳定$\to$不稳定。</p>
+</blockquote>
+<h4 id="2-Runge-Kutta45、ode45"><a href="#2-Runge-Kutta45、ode45" class="headerlink" title="2.Runge-Kutta45、ode45"></a>2.Runge-Kutta45、ode45</h4><p>原理：</p>
+<p>$solve\space x_{k+1}&#x3D;f_d(x_k)$</p>
+<p>$k_1&#x3D;f(x_k)$</p>
+<p>$k_2&#x3D;f(x_k+\frac{h}{2}k_1)$</p>
+<p>$k_3&#x3D;f(x_k+\frac{h}{2}k_2)$</p>
+<p>$k_4&#x3D;f(x_k+hk_3)$</p>
+<p>$x_{k+1}&#x3D;x_k+\frac{h}{6}(k_1+2k_2+2k_3+k_4)$</p>
+<p>代码：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> fd_pendulum_rk4(xk, h)</span><br><span class="line">    f1 = pendulum_dynamics(xk)</span><br><span class="line">    f2 = pendulum_dynamics(xk + <span class="number">0.5</span>*h*f1)</span><br><span class="line">    f3 = pendulum_dynamics(xk + <span class="number">0.5</span>*h*f2)</span><br><span class="line">    f4 = pendulum_dynamics(xk + h*f3)</span><br><span class="line">    <span class="keyword">return</span> xk + (h/<span class="number">6.0</span>)*(f1 + <span class="number">2</span>*f2 + <span class="number">2</span>*f3 + f4)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> pendulum_rk4(fun, x0, Tf, h)    </span><br><span class="line">    t = <span class="built_in">Array</span>(range(<span class="number">0</span>,Tf,step=h))</span><br><span class="line">    </span><br><span class="line">    x_hist = zeros(length(x0),length(t))</span><br><span class="line">    x_hist[:,<span class="number">1</span>] .= x0</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>:(length(t)-<span class="number">1</span>)</span><br><span class="line">        x_hist[:,k+<span class="number">1</span>] .= fd_pendulum_rk4(x_hist[:,k], h)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> x_hist, t</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以进行仿真：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x0 = [<span class="number">.1</span>; <span class="number">0</span>]</span><br><span class="line">x_hist2, t_hist2 = pendulum_rk4(pendulum_dynamics, x0, <span class="number">100</span>, <span class="number">0.01</span>)</span><br><span class="line">plot(t_hist2, x_hist2[<span class="number">1</span>,:])</span><br></pre></td></tr></table></figure>
+
+<p>得到结果：</p>
+<img src="C:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251015180538430.png" alt="image-20251015180538430" style="zoom:67%;" />
+
+<p>同理可检验特征值分析稳定性：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> ForwardDiff</span><br><span class="line">Ad = ForwardDiff.jacobian(x -&gt; fd_pendulum_rk4(x, <span class="number">0.01</span>), [<span class="number">0</span>; <span class="number">0</span>])</span><br><span class="line">norm.(eigvals(Ad))</span><br></pre></td></tr></table></figure>
+
+<p>得到结果：</p>
+<p>2-element Vector{Float64}:<br> 0.9999999999934447<br> 0.9999999999934447</p>
+<p>这说明系统有一定的收敛（阻尼）性。</p>
+<p>同样可以绘制不同步长下的结果：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">eignorm = zeros(<span class="number">100</span>)</span><br><span class="line">h = <span class="built_in">LinRange</span>(<span class="number">0</span>,<span class="number">1</span>,<span class="number">100</span>)</span><br><span class="line"><span class="keyword">for</span> k = <span class="number">1</span>:length(eignorm)</span><br><span class="line">    eignorm[k] = max(norm.(eigvals(ForwardDiff.jacobian(x -&gt; fd_pendulum_rk4(x, h[k]), [<span class="number">0</span>; <span class="number">0</span>])))...)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">plot(h,eignorm)</span><br></pre></td></tr></table></figure>
+
+<p>得到：</p>
+<img src="C:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251015181622092.png" alt="image-20251015181622092" style="zoom:67%;" />
+
+<p>可见：</p>
+<blockquote>
+<p>[!IMPORTANT]</p>
+<p>在小步长下，系统有优良的稳定性（优于向后欧拉）</p>
+<p>在中步长下，系统可能会阻尼过度(能量消失)</p>
+<p>在大步长下，系统仍然会发散</p>
+</blockquote>
+<h4 id="3-隐式（向前欧拉）"><a href="#3-隐式（向前欧拉）" class="headerlink" title="3.隐式（向前欧拉）"></a>3.隐式（向前欧拉）</h4><p>隐式数值仿真可以写成：<br>$$<br>f_d(x_{k+1},u_k,x_k)&#x3D;0<br>$$<br>对于向前欧拉，可以写成：<br>$$<br>x_{\textcolor{red}{k+1}} &#x3D; x_k + hf\left(x_{\textcolor{red}{k+1}}\right)<br>$$<br>那么如何求解？<br>$$<br>x_k + hf\left(x_{\textcolor{red}{k+1}}\right)-x_{\textcolor{red}{k+1}} &#x3D; 0<br>$$</p>
+<p>——这是一个<strong>求根问题</strong></p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> pendulum_backward_euler(fun, x0, Tf, dt)</span><br><span class="line">    t = <span class="built_in">Array</span>(range(<span class="number">0</span>,Tf,step=dt))</span><br><span class="line">    </span><br><span class="line">    x_hist = zeros(length(x0),length(t))</span><br><span class="line">    x_hist[:,<span class="number">1</span>] .= x0</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> k = <span class="number">1</span>:(length(t)-<span class="number">1</span>)</span><br><span class="line">        e = <span class="number">1</span></span><br><span class="line">        x_hist[:,k+<span class="number">1</span>] = x_hist[:,k]</span><br><span class="line">        <span class="keyword">while</span> e &gt; <span class="number">1e-8</span></span><br><span class="line">            xn = x_hist[:,k] + dt.*fun(x_hist[:,k+<span class="number">1</span>])</span><br><span class="line">            e = norm(xn - x_hist[:,k+<span class="number">1</span>])</span><br><span class="line">            x_hist[:,k+<span class="number">1</span>] .= xn</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> x_hist, t</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>进行仿真：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x0 = [<span class="number">.1</span>; <span class="number">0</span>]</span><br><span class="line">x_hist3, t_hist3 = pendulum_backward_euler(pendulum_dynamics, x0, <span class="number">10</span>, <span class="number">0.01</span>)</span><br><span class="line">plot(t_hist3, x_hist3[<span class="number">1</span>,:])</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<img src="C:\Users\CYH\AppData\Roaming\Typora\typora-user-images\image-20251016000434154.png" alt="image-20251016000434154" style="zoom:67%;" />
+
+<blockquote>
+<p>[!IMPORTANT]</p>
+<p>稳定性好，Julia中的默认积分器</p>
+<p>常用于游戏引擎等，在低计算开销下得到稳定合理的结果</p>
+<p>（隐式积分方法的收敛性优势很强）</p>
+</blockquote>
+<h3 id="附1"><a href="#附1" class="headerlink" title="附1"></a>附1</h3><h4 id="梯度与海森矩阵"><a href="#梯度与海森矩阵" class="headerlink" title="梯度与海森矩阵"></a>梯度与海森矩阵</h4><p>$$<br>y &#x3D;f(\mathbf{x})&#x3D; f\left( \begin{bmatrix} x_1 \ x_2 \ \vdots \ x_n \end{bmatrix} \right)\<br>\space\<br>\frac{\partial f}{\partial \mathbf{x}} &#x3D; \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \dots, \frac{\partial f}{\partial x_n} \right]\<br>\space\</p>
+<p>\nabla_{\mathbf{x}} f &#x3D; \left( \frac{\partial f}{\partial \mathbf{x}} \right)^T\<br>\space\</p>
+<p>\nabla_{\mathbf{x}}^2 f &#x3D; \begin{bmatrix}<br>\frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial x_1 \partial x_2} &amp; \dots &amp; \frac{\partial^2 f}{\partial x_1 \partial x_n} \<br>\frac{\partial^2 f}{\partial x_2 \partial x_1} &amp; \frac{\partial^2 f}{\partial x_2^2} &amp; \dots &amp; \frac{\partial^2 f}{\partial x_2 \partial x_n} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>\frac{\partial^2 f}{\partial x_n \partial x_1} &amp; \frac{\partial^2 f}{\partial x_n \partial x_2} &amp; \dots &amp; \frac{\partial^2 f}{\partial x_n^2}<br>\end{bmatrix}<br>$$</p>
+<p>因此，$\nabla_{\mathbf{x}}^2 f$ 可以看成梯度的雅可比矩阵</p>
+<h4 id="泰勒展开"><a href="#泰勒展开" class="headerlink" title="泰勒展开"></a>泰勒展开</h4><p>$$<br>\textbf{Taylor For Derivatives}\<br>\space\</p>
+<p>\dot{\mathbf{x}} &#x3D; f(\mathbf{x}, \mathbf{u}) \quad \text{Linearize about } \bar{\mathbf{x}}, \bar{\mathbf{u}}\<br>\space\</p>
+<p>\mathbf{A} &#x3D; \left. \frac{\partial f}{\partial \mathbf{x}} \right|<em>{\bar{\mathbf{x}}, \bar{\mathbf{u}}}, \quad \mathbf{B} &#x3D; \left. \frac{\partial f}{\partial \mathbf{u}} \right|</em>{\bar{\mathbf{x}}, \bar{\mathbf{u}}}\<br>\space\</p>
+<p>f(\mathbf{x}, \mathbf{u}) \approx f(\bar{\mathbf{x}}, \bar{\mathbf{u}}) + \mathbf{A}(\mathbf{x} - \bar{\mathbf{x}}) + \mathbf{B}(\mathbf{u} - \bar{\mathbf{u}})\<br>$$</p>
+<h2 id="第三讲"><a href="#第三讲" class="headerlink" title="第三讲"></a>第三讲</h2><h3 id="Same-Notation"><a href="#Same-Notation" class="headerlink" title="Same Notation"></a>Same Notation</h3><ul>
+<li><p>Given $f(x): \mathbb{R}^n \to \mathbb{R}$  </p>
+</li>
+<li><p>$$  \frac{\partial f}{\partial x} \in \mathbb{R}^{1 \times n}  $$   </p>
+</li>
+<li><p>is a <strong>row vector</strong><br>This is because $\frac{\partial f}{\partial x}$ is the linear operator mapping $\Delta x$ into $\Delta f$: </p>
+<p>$$ f(\boldsymbol{x}+\Delta \boldsymbol{x}) \approx f(\boldsymbol{x}) + \underbrace{\frac{\partial f}{\partial \boldsymbol{x}}}<em>{\text{行向量 } \in \mathbb{R}^{1 \times n}} ; \underbrace{\Delta \boldsymbol{x}}</em>{\text{列向量 } \in \mathbb{R}^{n \times 1}} $$</p>
+</li>
+</ul>
+<hr>
+<p>Similarly: </p>
+<ul>
+<li><p>Given (g(\boldsymbol{y}): \mathbb{R}^m \to \mathbb{R}^n)  </p>
+</li>
+<li><p>其雅可比矩阵为：  $$  \frac{\partial \boldsymbol{g}}{\partial \boldsymbol{y}} \in \mathbb{R}^{n \times m}  $$  这是一个**(n \times m) 矩阵**</p>
+</li>
+<li><p>原因如下：  $$  \boldsymbol{g}(\boldsymbol{y}+\Delta \boldsymbol{y}) \approx \boldsymbol{g}(\boldsymbol{y}) + \underbrace{\frac{\partial \boldsymbol{g}}{\partial \boldsymbol{y}}}<em>{\text{雅可比矩阵 } \in \mathbb{R}^{n \times m}} ; \underbrace{\Delta \boldsymbol{y}}</em>{\text{列向量 } \in \mathbb{R}^{m \times 1}}  $$</p>
+</li>
+</ul>
+<hr>
+<p>These conventions make the chain rule work:</p>
+<p>$$ f!\big(g(\boldsymbol{y}+\Delta \boldsymbol{y})\big) \approx f!\big(g(\boldsymbol{y})\big) + \left. \frac{\partial f}{\partial \boldsymbol{x}} \right|<em>{\boldsymbol{x}&#x3D;g(\boldsymbol{y})} \left. \frac{\partial \boldsymbol{g}}{\partial \boldsymbol{y}} \right|</em>{\boldsymbol{y}} \Delta \boldsymbol{y} $$</p>
+<hr>
+<p>For convenience, we will define:<br>$$ \nabla f(\boldsymbol{x}) &#x3D; \left( \frac{\partial f}{\partial \boldsymbol{x}} \right)^T \in \mathbb{R}^{n \times 1} $$ <em>(column vector)</em> </p>
+<p>$$ \nabla^2 f(\boldsymbol{x}) &#x3D; \frac{\partial}{\partial \boldsymbol{x}} \big( \nabla f(\boldsymbol{x}) \big) &#x3D; \frac{\partial^2 f}{\partial \boldsymbol{x}^2} \in \mathbb{R}^{n \times n} $$</p>
+<h3 id="求根问题（ROOT-FINDING）"><a href="#求根问题（ROOT-FINDING）" class="headerlink" title="求根问题（ROOT FINDING）"></a>求根问题（ROOT FINDING）</h3><ul>
+<li>Given (f(x)), find (x^<em>) such that (f(x^</em>) &#x3D; 0)<br>✅ Example: equilibrium of a <strong>continuous-time dynamics</strong></li>
+</ul>
+<hr>
+<ul>
+<li>Closely related: fixed point such that<br>$$<br>f(x^<em>) &#x3D; x^</em><br>$$<br>✅ Example: equilibrium of <strong>discrete-time dynamics</strong></li>
+</ul>
+<h4 id="Fixed-Point-Iteration"><a href="#Fixed-Point-Iteration" class="headerlink" title="Fixed-Point Iteration"></a>Fixed-Point Iteration</h4><p>  -Simplest solution method<br>  -If fixed point is stable, just iterate the dynamics until you converge<br>$$<br>  x \leftarrow f(x)<br>$$</p>
+<p>  -Only works for stable fixed points and has slow convergence.</p>
+<p>代码：( 目的是求解方程：$x_n &#x3D; x_0 + h.*\text{fun}(x_n)$)</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> backward_euler_step_fixed_point(fun, x0, h)</span><br><span class="line">    xn = x0</span><br><span class="line">    e = [norm(x0 + h.*fun(xn) - xn)]</span><br><span class="line">    <span class="keyword">while</span> e[<span class="keyword">end</span>] &gt; <span class="number">1e-8</span></span><br><span class="line">        xn = x0 + h.*fun(xn)</span><br><span class="line">        e = [e; norm(x0 + h.*fun(xn) - xn)]</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> xn, e</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Newton’s-Method"><a href="#Newton’s-Method" class="headerlink" title="Newton’s Method"></a>Newton’s Method</h4><ul>
+<li><p>Fit a linear approximation to (f(x)):<br>$$<br>f(x+\Delta x) \approx f(x) + \left. \frac{\partial f}{\partial x} \right|_x \Delta x<br>$$</p>
+</li>
+<li><p>Set approximation to zero and solve for (\Delta x):<br>$$<br>f(x) + \frac{\partial f}{\partial x} \Delta x &#x3D; 0 \implies \Delta x &#x3D; -\left( \frac{\partial f}{\partial x} \right)^{-1} f(x)<br>$$</p>
+</li>
+<li><p>Apply correction:<br>$$<br>x \leftarrow x + \Delta x<br>$$</p>
+</li>
+<li><p>Repeat until convergence</p>
+</li>
+</ul>
+<p>代码( 目的是求解方程：$x_n &#x3D; x_0 + h.*\text{fun}(x_n)$)：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> backward_euler_step_newton(fun, x0, h)</span><br><span class="line">    xn = x0</span><br><span class="line">    r = x0 + h.*fun(xn) - xn</span><br><span class="line">    e = [norm(r)]</span><br><span class="line">    <span class="keyword">while</span> e[<span class="keyword">end</span>] &gt; <span class="number">1e-8</span></span><br><span class="line">        ∂r = ForwardDiff.jacobian(x -&gt; x0 + h.*fun(x) - x, xn)</span><br><span class="line">        xn = xn - ∂r\r</span><br><span class="line">        r = x0 + h.*fun(xn) - xn</span><br><span class="line">        e = [e; norm(r)]</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> xn, e</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Fixed-Point-Iteration-vs-Newton’s-Method"><a href="#Fixed-Point-Iteration-vs-Newton’s-Method" class="headerlink" title="Fixed-Point Iteration vs Newton’s Method"></a>Fixed-Point Iteration vs Newton’s Method</h4><p>收敛速度比较：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xn, e1 = backward_euler_step_fixed_point(pendulum_dynamics, x0, <span class="number">0.1</span>)</span><br><span class="line">e1</span><br><span class="line">xn, e2 = backward_euler_step_newton(pendulum_dynamics, x0, <span class="number">0.1</span>)</span><br><span class="line">e2</span><br><span class="line">semilogy(e1)</span><br><span class="line">semilogy(e2)</span><br></pre></td></tr></table></figure>
+
+<p>e1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">14-element Vector&#123;Float64&#125;:</span><br><span class="line"> 0.09793658173053843</span><br><span class="line"> 0.009793658173053846</span><br><span class="line"> 0.009564124766684667</span><br><span class="line"> 0.0009564124766684723</span><br><span class="line"> 0.0009343853483241293</span><br><span class="line"> 9.343853483241571e-5</span><br><span class="line"> 9.128296581455142e-5</span><br><span class="line"> 9.128296581450979e-6</span><br><span class="line"> 8.917746787032166e-6</span><br><span class="line"> 8.917746786990532e-7</span><br><span class="line"> 8.712050176828967e-7</span><br><span class="line"> 8.712050177106523e-8</span><br><span class="line"> 8.511098474606182e-8</span><br><span class="line"> 8.511098478769519e-9</span><br></pre></td></tr></table></figure>
+
+<p>e2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3-element Vector&#123;Float64&#125;:</span><br><span class="line"> 0.09793658173053843</span><br><span class="line"> 3.7830087232931797e-6</span><br><span class="line"> 5.2874553670659e-15</span><br></pre></td></tr></table></figure>
+
+<p>plot：</p>
+<img src="C:\Users\CYH\AppData\Roaming\Typora\typora-user-images\屏幕截图 2026-01-22 223944.png" alt="屏幕截图 2026-01-22 223944" style="zoom:67%;" />
+
+<blockquote>
+<p>[!IMPORTANT]</p>
+<p>不动点法：线性收敛</p>
+<p>牛顿法：二次收敛（$e_{k+1} \approx e_k^2$）</p>
+<ul>
+<li><p>在牛顿法中，求解逆矩阵的计算是昂贵的，复杂度为$O(n^3)$</p>
+</li>
+<li><p>但在实际系统中，矩阵往往是稀疏的，此时的计算复杂度可通过相应算法降低</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="最小化（Minimization）"><a href="#最小化（Minimization）" class="headerlink" title="最小化（Minimization）"></a>最小化（Minimization）</h3><h4 id="基本策略"><a href="#基本策略" class="headerlink" title="基本策略"></a>基本策略</h4><p>$$ \min_{x} f(x), \quad f(x): \mathbb{R}^n \to \mathbb{R} $$ </p>
+<ul>
+<li><p>If $f$ is smooth, $\frac{\partial f}{\partial x}\bigg|_{x^*}&#x3D;0$ at a local min </p>
+</li>
+<li><p>Now we have a root-finding problem in $\nabla f(x)&#x3D;0$</p>
+<p>$\Rightarrow$ Apply Newton </p>
+<p>$$ \Rightarrow\nabla f(x+\delta x) \approx \nabla f(x) + \underbrace{\frac{\partial}{\partial x}\big(\nabla f(x)\big)}_{\nabla^2 f(x)}\delta x &#x3D; 0 $$ </p>
+<p>$$ \Rightarrow \delta x &#x3D; -\big(\nabla^2 f(x)\big)^{-1} \nabla f(x) $$</p>
+</li>
+</ul>
+<p>​             $$ X \leftarrow X + \delta X $$ </p>
+<ul>
+<li><strong>repeat until convergence</strong></li>
+</ul>
+<p>Intuition：</p>
+<ul>
+<li>Fit a quadratic approximation to $f(x)$ </li>
+<li>Exactly minimize approximation</li>
+</ul>
+<h4 id="Example："><a href="#Example：" class="headerlink" title="Example："></a>Example：</h4><p>函数：$f(x) &#x3D; x^4 + x^3 - x^2 - x$</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> f(x)</span><br><span class="line">    <span class="keyword">return</span> x.^<span class="number">4</span> + x.^<span class="number">3</span> - x.^<span class="number">2</span> - x</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">function</span> ∇f(x)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">4.0</span>*x.^<span class="number">3</span> + <span class="number">3.0</span>*x.^<span class="number">2</span> - <span class="number">2.0</span>*x - <span class="number">1.0</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">function</span> ∇<span class="number">2</span>f(x)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12.0</span>*x.^<span class="number">2</span> + <span class="number">6.0</span>*x - <span class="number">2.0</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>根据上面的牛顿法（$ \Rightarrow \delta x &#x3D; -\big(\nabla^2 f(x)\big)^{-1} \nabla f(x) $）编写最小值求取函数：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> newton_step(x0)</span><br><span class="line">    xn = x0 - ∇<span class="number">2</span>f(x0)\∇f(x0)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>随后进行迭代实验：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xguess = <span class="number">0.0</span>  <span class="comment">#1，-1，0</span></span><br><span class="line">xnew = newton_step(xguess[<span class="keyword">end</span>]) <span class="comment">#重复</span></span><br><span class="line">xguess = [xguess xnew]  <span class="comment">#重复</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!NOTE]</p>
+<p>通过迭代实验，我们可以发现，这个方法真正寻找的是<strong>局部驻点（最小值、最大值、鞍点）</strong>，而非<strong>全局最小值</strong></p>
+</blockquote>
+<h4 id="Sufficient-Conditions"><a href="#Sufficient-Conditions" class="headerlink" title="Sufficient Conditions"></a>Sufficient Conditions</h4><ul>
+<li>$\nabla f(x) &#x3D; 0$ is a <em>first-order necessary condition</em> for a minimum. <strong>Not sufficient</strong>.</li>
+</ul>
+<hr>
+<h2 id="Let’s-look-at-the-scalar-case-delta-x-underbrace-left-nabla-2-f-right-1-text-learning-rate-step-size-underbrace-nabla-f-text-gradient"><a href="#Let’s-look-at-the-scalar-case-delta-x-underbrace-left-nabla-2-f-right-1-text-learning-rate-step-size-underbrace-nabla-f-text-gradient" class="headerlink" title="Let’s look at the scalar case:$$\delta x &#x3D; -\underbrace{\left(\nabla^2 f\right)^{-1}}{\text{learning rate&#x2F;step size}} \underbrace{\nabla f}{\text{gradient}}$$"></a>Let’s look at the scalar case:<br>$$<br>\delta x &#x3D; -\underbrace{\left(\nabla^2 f\right)^{-1}}<em>{\text{learning rate&#x2F;step size}} \underbrace{\nabla f}</em>{\text{gradient}}<br>$$</h2><ul>
+<li><p>$\nabla^2 f &gt; 0 \implies$ descent (minimization)</p>
+</li>
+<li><p>$\nabla^2 f &lt; 0 \implies$ ascent (maximization)</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>In $\mathbb{R}^n$, $\nabla^2 f &gt; 0$, $\nabla^2 f \in S_n^+$<br>$\qquad\qquad\qquad$ (positive definite)</p>
+<p>​                           $ \implies \text{descent}  $</p>
+</li>
+<li><p>If $\nabla^2 f &gt; 0$ everywhere $\implies f(x)$ is <strong>strongly convex</strong> $  \implies \text{Can always solve with Newton}  $</p>
+</li>
+</ul>
+<p>Regularization</p>
+<ul>
+<li>Practical solution to make sure we’re always minimizing</li>
+</ul>
+<hr>
+<h4 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h4><p>$$<br>H \leftarrow \nabla^2 f \quad \color{red}\text{“not pos. def.”}<br>$$</p>
+<ol>
+<li><p>计算海森矩阵：$H \leftarrow \nabla^2 f$（此时 $H$ 可能<strong>不是正定矩阵</strong>） </p>
+</li>
+<li><p>循环判断并修正： </p>
+<p> 当 $H$ 不是正定矩阵时，执行：$H \leftarrow H + \beta I$（其中 $\beta &gt; 0$，是标量超参数） ， 直到 $H$ 成为正定矩阵为止</p>
+</li>
+<li><p>计算更新步长 $$ \delta x &#x3D; -H^{-1} g $$ </p>
+</li>
+<li><p>更新迭代点 $$ x \leftarrow x + \delta x $$</p>
+</li>
+</ol>
+<blockquote>
+<p>[!NOTE]</p>
+<p>也被称为 <strong>“damped Newton”（阻尼牛顿法）</strong></p>
+<ul>
+<li>核心特性：</li>
+<li><ul>
+<li>保证迭代始终为<strong>下降方向</strong>（descent） </li>
+<li>有效<strong>缩小步长</strong>（shrinks step），提升算法稳定性</li>
+<li>这一方案存在过冲&#x2F;<strong>超调</strong>（overshot）问题</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>代码：</p>
+<figure class="highlight julia"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> regularized_newton_step(x0)</span><br><span class="line">    β = <span class="number">1.0</span></span><br><span class="line">    H = ∇<span class="number">2</span>f(x0)</span><br><span class="line">    <span class="keyword">while</span> !isposdef(H)</span><br><span class="line">        H = H + β*I</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    xn = x0 - H\∇f(x0)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="附1-1"><a href="#附1-1" class="headerlink" title="附1"></a>附1</h3><h4 id="牛顿法求解非线性方程组详解"><a href="#牛顿法求解非线性方程组详解" class="headerlink" title="牛顿法求解非线性方程组详解"></a>牛顿法求解非线性方程组详解</h4><p>我们的目标是求解方程组：<br>$$<br>r(x) &#x3D; 0<br>$$</p>
+<hr>
+<p><strong>推导过程</strong></p>
+<ol>
+<li><p><strong>初始假设</strong><br>设当前迭代点为 $x_k$，且 $r(x_k) \neq 0$。</p>
+</li>
+<li><p><strong>泰勒展开近似</strong><br>对 $r(x)$ 在 $x_k$ 处做一阶泰勒展开：<br>$$<br>r(x) \approx r(x_k) + \left.\frac{\partial r}{\partial x}\right|_{x_k} \left(x - x_k\right) &#x3D; 0<br>$$</p>
+</li>
+<li><p><strong>整理方程</strong><br>将展开式移项可得：<br>$$<br>\left.\frac{\partial r}{\partial x}\right|_{x_k} \left(x - x_k\right) &#x3D; -r(x_k)<br>$$</p>
+</li>
+<li><p><strong>求解迭代更新公式</strong><br>两边左乘雅可比矩阵 $\left.\frac{\partial r}{\partial x}\right|<em>{x_k}$ 的逆矩阵，得到迭代更新公式：<br>$$<br>x</em>{k+1} &#x3D; x_k - \left[\left.\frac{\partial r}{\partial x}\right|_{x_k}\right]^{-1} r(x_k)<br>$$</p>
+</li>
+</ol>
+<p>在这一过程中，如果采用：<br>$$<br>x_{k+1} &#x3D; x_k - \textcolor{red}{\alpha} \left[\left.\frac{\partial r}{\partial x}\right|_{x_k}\right]^{-1} r(x_k)<br>$$<br><strong>此时，其中的$\alpha$就是学习率&#x2F;步长</strong>。</p>
+<p>牛顿法的直观解释图：</p>
+<img src="C:\Users\CYH\AppData\Roaming\Typora\typora-user-images\屏幕截图 2026-01-23 165223.png" alt="屏幕截图 2026-01-23 165223" style="zoom:67%;" />
+
+<h4 id="最小化问题"><a href="#最小化问题" class="headerlink" title="最小化问题"></a>最小化问题</h4><p><strong>KKT 条件与牛顿法的关联</strong></p>
+<ol>
+<li><p>KKT 一阶必要条件<br>对于无约束优化问题，局部极小值点满足：<br>$$<br>\nabla_x f(x) &#x3D; 0<br>$$</p>
+</li>
+<li><p>转化为根寻找问题<br>定义残差函数：<br>$$<br>r(x) &#x3D; \nabla_x f(x) &#x3D; 0<br>$$<br>这样就把优化问题转化为求解非线性方程组的根。</p>
+</li>
+<li><p>牛顿法迭代步长推导<br>对残差函数 $r(x)$ 应用牛顿法，得到迭代步长：<br>$$<br>\Delta x &#x3D; -\underbrace{\left(\left.\frac{\partial \nabla_x f(x)}{\partial x}\right|<em>{x_k}\right)^{-1}}</em>{\nabla^2 f(x_k) \quad \text{（海森矩阵）}} \underbrace{\nabla_x f(x_k)}_{\text{当前梯度}}<br>$$</p>
+</li>
+</ol>
+<ul>
+<li>其中 $\left.\frac{\partial \nabla_x f(x)}{\partial x}\right|_{x_k}$ 是梯度的导数，即海森矩阵 $\nabla^2 f(x_k)$</li>
+<li>这个公式和无约束优化的牛顿法迭代公式完全等价</li>
+</ul>
+<p>目标函数 $f(x)$ 在 $x_k$ 处的二阶泰勒展开为：<br>$$<br> \min_{\Delta x} \underbrace{f(x_k) + \textcolor{red}{\nabla_x f(x_k)}^T \Delta x + \frac{1}{2} \Delta x^T \textcolor{red}{\nabla^2 f(x_k)} \Delta x}_{\textcolor{blue}{\text{二次近似模型}}}<br>$$<br>求解这一问题会发现，$$ \Delta x &#x3D; -H^{-1} g $$，因此，<strong><u>最小化问题中牛顿法的本质，是求解目标函数在该位置二次近似后的最值位置，并对这一过程不断迭代</u></strong>。</p>
+<h4 id="最小二乘"><a href="#最小二乘" class="headerlink" title="最小二乘"></a>最小二乘</h4><h5 id="二次型"><a href="#二次型" class="headerlink" title="二次型"></a>二次型</h5><ol>
+<li>函数定义<br>$$<br>J(x) &#x3D; \frac{1}{2} x^T Q x + g^T x<br>$$</li>
+</ol>
+<ul>
+<li><p>(Q)：<strong>对称矩阵</strong></p>
+</li>
+<li><p>(x)：待优化的向量</p>
+</li>
+<li><p>(g)：常数向量</p>
+</li>
+</ul>
+<ol start="2">
+<li>一阶导数（梯度）<br>对 (J(x)) 关于 (x) 求导，得到梯度：<br>$$<br>\nabla_x J(x) &#x3D; Q x + g<br>$$</li>
+<li>二阶导数（海森矩阵）<br>对梯度再次求导，得到海森矩阵：<br>$$<br>\nabla_x^2 J(x) &#x3D; Q<br>$$</li>
+</ol>
+<h5 id="最小二乘法求解超定方程组"><a href="#最小二乘法求解超定方程组" class="headerlink" title="最小二乘法求解超定方程组"></a>最小二乘法求解超定方程组</h5><p>当方程组 (Ax &#x3D; b) 是<strong>超定方程组</strong>（方程数多于未知数）时，通常没有精确解，我们通过最小二乘法寻找最优近似解。</p>
+<ol>
+<li>超定方程组表示<br>[<br>\begin{bmatrix} A \ \end{bmatrix} x \approx \begin{bmatrix} b \ \end{bmatrix}<br>]</li>
+</ol>
+<ul>
+<li>(A) 是 (m \times n) 矩阵（(m &gt; n)，方程数 &gt; 未知数）</li>
+<li>(x) 是 (n \times 1) 未知向量</li>
+<li>(b) 是 (m \times 1) 观测向量</li>
+</ul>
+<ol start="2">
+<li>最小二乘目标函数<br>我们的目标是最小化残差的2-范数平方：<br>[<br>\min_{x} |Ax - b|_2^2<br>]<br><strong>推导：</strong><br>步骤1：范数平方转置展开<br>$$<br>\frac{1}{2} |Ax - b|_2^2 &#x3D; \frac{1}{2} (Ax - b)^T (Ax - b)<br>$$<br>步骤2：展开转置项<br>$$<br>&#x3D; \frac{1}{2} \left( x^T A^T - b^T \right) (Ax - b)<br>$$<br>步骤3：乘法展开<br>$$<br>&#x3D; \frac{1}{2} \left( x^T A^T A x - b^T A x - x^T A^T b + b^T b \right)<br>$$</li>
+</ol>
+<ul>
+<li>其中 $x^T A^T b$ 是标量，等于其转置 $b^T A x$；$b^T b$ 是与 $x$ 无关的常数，可忽略。</li>
+</ul>
+<p>步骤4：合并同类项<br>$$<br>&#x3D; \frac{1}{2} \left( x^T A^T A x - b^T A x - b^T A x \right)<br>$$<br>$$<br>&#x3D; \frac{1}{2} \left( x^T A^T A x - 2 (A^T b)^T x \right)<br>$$<br>步骤5：写成标准二次型<br>$$<br>&#x3D; \frac{1}{2} x^T \underbrace{A^T A}<em>{\textcolor{red}{Q}} x - \underbrace{(A^T b)^T}</em>{\textcolor{red}{g^T}} x<br>$$</p>
+<ul>
+<li>$\textcolor{red}{Q &#x3D; A^T A}$：对称正定矩阵（二次型的核心矩阵）</li>
+<li>$\textcolor{red}{g &#x3D; -A^T b}$：线性项的系数向量</li>
+</ul>
+<p>最终，最小二乘问题等价于二次型优化问题：<br>$$<br>\min_{x} \frac{1}{2} |Ax - b|<em>2^2 &#x3D; \min</em>{x} \frac{1}{2} x^T (A^T A) x + (A^T b)^T x<br>$$</p>
+<p>对该代价函数 (J(x)) 求梯度并令其为 0：<br>$$<br>\nabla_x J(x) &#x3D; A^T A x - A^T b &#x3D; 0<br>$$<br>整理得到<strong>正则方程</strong>：<br>$$<br>\boxed{\textcolor{red}{A^T A x &#x3D; A^T b}}<br>$$<br>当 (A^T A) 可逆时，最优解为： $$ x &#x3D; \underbrace{(A^T A)^{-1} A^T}_{\textcolor{blue}{\text{伪逆 (pseudoinverse for skinny A)}}} b $$</p>
+<h5 id="求解欠定方程组-需要Lecture4相关知识"><a href="#求解欠定方程组-需要Lecture4相关知识" class="headerlink" title="求解欠定方程组(需要Lecture4相关知识)"></a>求解欠定方程组(需要Lecture4相关知识)</h5><p>$$<br>\min_{x} \quad \frac{1}{2} |x|_2^2<br>$$<br>$$<br>\text{s.t.} \quad Ax &#x3D; b<br>$$</p>
+<p>拉格朗日函数：<br>$$<br>L(x, \lambda) &#x3D; \frac{1}{2} x^T x + \lambda^T (Ax - b)<br>$$</p>
+<p>对应的KKT条件为：</p>
+<p>$$<br>\nabla_x L(x, \lambda) &#x3D; x + A^T \lambda &#x3D; 0<br>$$<br>$$<br>Ax - b &#x3D; 0<br>$$</p>
+<p>随后对其进行求解即可：</p>
+<h1 id="①方法1-begin-bmatrix-I-A-T-A-0-end-bmatrix-begin-bmatrix-x-lambda-end-bmatrix"><a href="#①方法1-begin-bmatrix-I-A-T-A-0-end-bmatrix-begin-bmatrix-x-lambda-end-bmatrix" class="headerlink" title="①方法1$$\begin{bmatrix}I &amp; A^T \A &amp; 0\end{bmatrix}\begin{bmatrix}x \\lambda\end{bmatrix}"></a>①方法1<br>$$<br>\begin{bmatrix}<br>I &amp; A^T \<br>A &amp; 0<br>\end{bmatrix}<br>\begin{bmatrix}<br>x \<br>\lambda<br>\end{bmatrix}</h1><p>\begin{bmatrix}<br>0 \<br>b<br>\end{bmatrix}<br>$$</p>
+<p>②方法2<br>$$<br>x &#x3D; -A^T \lambda \quad \Rightarrow \quad Ax &#x3D; b<br>$$</p>
+<hr>
+<p>最后可解得：<br>$$<br>x &#x3D; A^T (A A^T)^{-1} b<br>$$</p>
+<h4 id="牛顿法-高斯牛顿法-求解KKT"><a href="#牛顿法-高斯牛顿法-求解KKT" class="headerlink" title="牛顿法-&gt;高斯牛顿法 求解KKT"></a>牛顿法-&gt;高斯牛顿法 求解KKT</h4><p>把KKT条件写成求根问题的形式：<br>$$<br>r\left( \begin{bmatrix} x \ \lambda \end{bmatrix} \right) &#x3D; \begin{bmatrix} \nabla_x \mathcal{L}(x,\lambda) \ c(x) \end{bmatrix} &#x3D; \begin{bmatrix} 0 \ 0 \end{bmatrix}<br>$$</p>
+<p>根据这个r（x），进行牛顿迭代：<br>$$<br>\begin{bmatrix} \Delta x \ \Delta \lambda \end{bmatrix} &#x3D; \begin{bmatrix} \nabla_x^2 \mathcal{L}(x,\lambda) &amp; \left( \frac{\partial c}{\partial x} \right)^T \ \frac{\partial c}{\partial x} &amp; 0 \end{bmatrix} \begin{bmatrix} -\nabla_x \mathcal{L}(x_k,\lambda_k) \ -c(x_k) \end{bmatrix}<br>$$</p>
+<ul>
+<li>这就是**“完整”牛顿（<em>“full” newton</em>）**</li>
+</ul>
+<p>$$<br>\nabla_x^2 \mathcal{L}(x,\lambda) &#x3D; \nabla_x^2 f(x) + \frac{\partial}{\partial x} \left( \left( \frac{\partial c}{\partial x} \right)^T \lambda \right)<br>$$<br>其中的后项就是<strong>约束曲率</strong>，为了降低计算成本，保留f（x）梯度的优良性质，我们往往采用<strong>高斯-牛顿法</strong></p>
+<hr>
+<p>$$<br>\begin{bmatrix} \Delta x \ \Delta \lambda \end{bmatrix} &#x3D; \begin{bmatrix} \nabla_x^2 f(x) &amp; \left( \frac{\partial c}{\partial x} \right)^T \ \frac{\partial c}{\partial x} &amp; 0 \end{bmatrix} \begin{bmatrix} -\nabla_x \mathcal{L}(x_k,\lambda_k) \ -c(x_k) \end{bmatrix}<br>$$</p>
+<ul>
+<li>这就是<strong>高斯-牛顿（<em>Gauss-Newton Step</em>）</strong></li>
+</ul>
+<h2 id="第四讲"><a href="#第四讲" class="headerlink" title="第四讲"></a>第四讲</h2><p>（略）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/02/notes(1-3)/" data-id="cuidNH6nexVWaVQ87WCu3IGu1" data-title="notes (1-3)" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6/" rel="tag">最优控制</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/02/02/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6/" rel="tag">最优控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">学习</a> <a href="/tags/%E6%9C%80%E4%BC%98%E6%8E%A7%E5%88%B6/" style="font-size: 10px;">最优控制</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">February 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/02/notes(1-3)/">notes (1-3)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
